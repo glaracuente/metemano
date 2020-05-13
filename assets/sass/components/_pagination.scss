@@ -39,12 +39,13 @@
 		}
 
 		.next, .previous {
-			@include icon;
+			@include icon(false, solid);
 			padding: 0 1.75rem;
 
 			&:before {
 				display: inline-block;
 				color: inherit !important;
+				line-height: inherit;
 			}
 		}
 
@@ -63,13 +64,13 @@
 			}
 		}
 
-		@include breakpoint(medium) {
+		@include breakpoint('<=medium') {
 			a, span {
 				font-size: 0.9rem;
 			}
 		}
 
-		@include breakpoint(xsmall) {
+		@include breakpoint('<=xsmall') {
 			.page, .extra {
 				display: none;
 			}
