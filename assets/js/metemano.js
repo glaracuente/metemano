@@ -1,12 +1,17 @@
 $(document).ready(function () {
 	var renderPics = function () {
-		for (var i = 0; i < 3; i++) {
-		var imgDiv = $("<div>").addClass("media").addClass("all");
-		var currentHref = $("<a>").attr("href", `images/portfolio/bathroom/${i}.jpg`);
-		var currentImage = $("<img>").attr("src", `images/portfolio/bathroom/${i}.jpg`);
-		currentHref.wrapInner(currentImage)
-		imgDiv.append(currentHref)
-		$("#portfolioPics").append(imgDiv)
+		//EVENTUALLY MOVE THIS TO S3 BUCKET OR SIMILAR
+		var tags = ["bathroom", "customWork", "kitchen"];
+		for (var t = 0; t < tags.length; t++) {
+			for (var i = 0; i < 3; i++) {
+			var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tags[t]);
+			var currentHref = $("<a>").attr("href", `images/portfolio/${tags[t]}/${i}.jpg`);
+			var currentImage = $("<img>").attr("src", `images/portfolio/${tags[t]}/${i}.jpg`);
+			currentHref.wrapInner(currentImage)
+			imgDiv.append(currentHref)
+			//remember to use a diff class/id or fix code for id=content in css/js
+			$(".content").append(imgDiv)
+			}
 		}
 	}
 

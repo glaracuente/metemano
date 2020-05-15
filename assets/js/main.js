@@ -73,6 +73,7 @@
 
 							// Reapply active class to current tab.
 								$this.addClass('active');
+								console.log(tag)
 
 							// Hide media that do not have the same class as the clicked tab.
 								$media
