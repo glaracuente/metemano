@@ -1,16 +1,19 @@
 $(document).ready(function () {
 	var renderPics = function () {
 		//EVENTUALLY MOVE THIS TO S3 BUCKET OR SIMILAR
-		var tags = ["bathroom", "customWork", "kitchen"];
-		for (var t = 0; t < tags.length; t++) {
-			for (var i = 0; i < 3; i++) {
-			var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tags[t]).css({ 'height': '200px', 'width': '200px' }); ;
-			var currentHref = $("<a>").attr("href", `images/portfolio/${tags[t]}/${i}.jpg`);
-			var currentImage = $("<img>").attr("src", `images/portfolio/${tags[t]}/${i}.jpg`);
-			currentHref.wrapInner(currentImage)
-			imgDiv.append(currentHref)
-			//remember to use a diff class/id or fix code for id=content in css/js
-			$(".content").append(imgDiv)
+		//SUUUUPER HACKY USING MAP INSTEAD OF DYNAMIC COUNTS
+		const tags_counts = new Map([['bathroom', 7], ['customWork', 8], ['floors', 2], ['kitchen', 3]])
+		
+		for (const [tag, count] of tags_counts.entries()) {
+			for (var i=0; i < count; i++) {
+				var img = `images/portfolio/${tag}/${i}.jpg`;
+				var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tag).css({ 'height': '200px', 'width': '200px', 'outline': '5px solid white', 'outline-offse': '-10px'}); ;
+				var currentHref = $("<a>").attr("href", `${img}`);
+				var currentImage = $("<img>").attr("src", `${img}`);
+				currentHref.wrapInner(currentImage);
+				imgDiv.append(currentHref);
+				//remember to use a diff class/id or fix code for id=content in css/js
+				$(".content").append(imgDiv);
 			}
 		}
 	}
