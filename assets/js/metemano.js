@@ -8,8 +8,8 @@ $(document).ready(function () {
 			for (var i=0; i < count; i++) {
 				var img = `images/portfolio/${tag}/${i}.jpg`;
 				var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tag).css({ 'height': '200px', 'width': '200px', 'outline': '2px solid black', 'outline-offset': '-1px'});
-				var currentHref = $("<a>").attr("href", `${img}`);
-				var currentImage = $("<img>").attr("src", `${img}`);
+				var currentHref = $("<a>").attr("href", `${img}`)
+				var currentImage = $("<img>").attr("src", `${img}`).css({ 'height': '200px', 'width': '200px'});
 				currentHref.wrapInner(currentImage);
 				imgDiv.append(currentHref);
 				//remember to use a diff class/id or fix code for id=content in css/js
