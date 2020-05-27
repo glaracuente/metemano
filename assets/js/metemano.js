@@ -7,7 +7,7 @@ $(document).ready(function () {
 		for (const [tag, count] of tags_counts.entries()) {
 			for (var i=0; i < count; i++) {
 				var img = `images/portfolio/${tag}/${i}.jpg`;
-				var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tag).css({ 'height': '200px', 'width': '200px', 'outline': '5px solid white', 'outline-offse': '-10px'}); ;
+				var imgDiv = $("<div>").addClass("media").addClass("all").addClass(tag).css({ 'height': '200px', 'width': '200px', 'outline': '2px solid black', 'outline-offset': '-1px'});
 				var currentHref = $("<a>").attr("href", `${img}`);
 				var currentImage = $("<img>").attr("src", `${img}`);
 				currentHref.wrapInner(currentImage);
